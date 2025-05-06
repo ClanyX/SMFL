@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,c++
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,c++
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,c++,games,video
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,c++,games,video
 
 ### C++ ###
 # Prerequisites
@@ -35,6 +35,30 @@
 *.out
 *.app
 
+### Games ###
+*.gam
+*.nes
+*.rom
+*.sav
+
+### Video ###
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.avi
+*.flv
+*.mkv
+*.mov
+*.mp4
+*.mpg
+*.ogv
+*.rm
+*.swf
+*.vob
+*.wmv
+*.webm
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -54,30 +78,4 @@
 .history
 .ionide
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
-
-# Folder config file
-[Dd]esktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,c++
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,c++,games,video
