@@ -23,21 +23,23 @@ int main()
                 window.close();
         }
 
+		Vector2 movement = { 0.f, 0.f };
+
         if (Keyboard::isKeyPressed(Keyboard::Key::A) && circle.getPosition().x > 1.f) {
-			circle.move({ -3.f, 0.f });
+            movement.x += -3.f;
         }
         if (Keyboard::isKeyPressed(Keyboard::Key::D) && circle.getPosition().x < 669.f) {
-			circle.move({ 3.f, 0.f });
+            movement.x += 3.f;
         }
 
         if (Keyboard::isKeyPressed(Keyboard::Key::W) && circle.getPosition().y > 1.f) {
-			circle.move({ 0.f, -3.f });
+            movement.y += -3.f;
         }
         if (Keyboard::isKeyPressed(Keyboard::Key::S) && circle.getPosition().y < 469.f) {
-			circle.move({ 0.f, 3.f });
+            movement.y += 3.f;
         }
 
-
+        circle.move(movement);
 
         window.clear(Color::Black);
 		window.draw(circle);
