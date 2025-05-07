@@ -21,6 +21,12 @@ int main()
         {
             if (event->is<Event::Closed>())
                 window.close();
+            else if (event->is<Event::Resized>()) {
+                View view(FloatRect({ 0.f, 0.f }, Vector2f(window.getSize())));
+                window.setView(view);
+                cout << window.getView().getSize().x << ", " << window.getView().getSize().y << endl;
+            }
+
         }
 
 		Vector2 movement = { 0.f, 0.f };
@@ -28,14 +34,14 @@ int main()
         if (Keyboard::isKeyPressed(Keyboard::Key::A) && circle.getPosition().x > 1.f) {
             movement.x += -3.f;
         }
-        if (Keyboard::isKeyPressed(Keyboard::Key::D) && circle.getPosition().x < 669.f) {
+        if (Keyboard::isKeyPressed(Keyboard::Key::D) && circle.getPosition().x < (window.getView().getSize().x - 130)) {
             movement.x += 3.f;
         }
 
         if (Keyboard::isKeyPressed(Keyboard::Key::W) && circle.getPosition().y > 1.f) {
             movement.y += -3.f;
         }
-        if (Keyboard::isKeyPressed(Keyboard::Key::S) && circle.getPosition().y < 469.f) {
+        if (Keyboard::isKeyPressed(Keyboard::Key::S) && circle.getPosition().y < (window.getView().getSize().y - 130)) {
             movement.y += 3.f;
         }
 
@@ -43,7 +49,7 @@ int main()
 
         window.clear(Color::Black);
 		window.draw(circle);
-        cout << circle.getPosition().x << " - " << circle.getPosition().y << endl;
+        //cout << circle.getPosition().x << " - " << circle.getPosition().y << endl;
         window.display();
     }
 
