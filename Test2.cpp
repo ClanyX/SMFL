@@ -11,9 +11,19 @@ int main()
     window.setPosition({ 10, 50 });
 	window.setFramerateLimit(60);
 
-    CircleShape circle(65.f);
-	circle.setFillColor(Color::White);
-    circle.setPosition({ window.getSize().x / 2 - circle.getRadius(), window.getSize().y / 2 - circle.getRadius() });
+    const Vector2f fixedResolution({ 800.f,600.f });
+
+    Texture texutre;
+    if (!texutre.loadFromFile("img_texture.png")) return -1;
+
+    RectangleShape square(Vector2f({ 50.f, 50.f }));
+    square.setFillColor(Color::Black);
+    square.setPosition({ 400.f,300.f });
+
+    Sprite bgsprite(texutre);
+
+    Vector2u textureSize = texutre.getSize();
+    Vector2u windowSize = window.getSize();
 
     while (window.isOpen())
     {
@@ -22,34 +32,43 @@ int main()
             if (event->is<Event::Closed>())
                 window.close();
             else if (event->is<Event::Resized>()) {
-                View view(FloatRect({ 0.f, 0.f }, Vector2f(window.getSize())));
+                View view(FloatRect({ 0.f, 0.f }, { fixedResolution.x, fixedResolution.y }));
                 window.setView(view);
-                cout << window.getView().getSize().x << ", " << window.getView().getSize().y << endl;
-            }
+                
 
+                Vector2u textureSize = texutre.getSize();
+                Vector2u windowSize = window.getSize();
+
+                bgsprite.setScale(
+                    Vector2f(
+                        fixedResolution.x / textureSize.x,
+                        fixedResolution.y / textureSize.y
+                    )
+                );
+            }
         }
 
 		Vector2 movement = { 0.f, 0.f };
 
-        if (Keyboard::isKeyPressed(Keyboard::Key::A) && circle.getPosition().x > 1.f) {
+        if (Keyboard::isKeyPressed(Keyboard::Key::A) && square.getPosition().x > 1.f) {
             movement.x += -3.f;
         }
-        if (Keyboard::isKeyPressed(Keyboard::Key::D) && circle.getPosition().x < (window.getView().getSize().x - 130)) {
+        if (Keyboard::isKeyPressed(Keyboard::Key::D) && square.getPosition().x < (window.getView().getSize().x - 50)) {
             movement.x += 3.f;
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::Key::W) && circle.getPosition().y > 1.f) {
+        if (Keyboard::isKeyPressed(Keyboard::Key::W) && square.getPosition().y > 1.f) {
             movement.y += -3.f;
         }
-        if (Keyboard::isKeyPressed(Keyboard::Key::S) && circle.getPosition().y < (window.getView().getSize().y - 130)) {
+        if (Keyboard::isKeyPressed(Keyboard::Key::S) && square.getPosition().y < (window.getView().getSize().y - 50)) {
             movement.y += 3.f;
         }
 
-        circle.move(movement);
+        square.move(movement);
 
-        window.clear(Color::Black);
-		window.draw(circle);
-        //cout << circle.getPosition().x << " - " << circle.getPosition().y << endl;
+        window.clear(Color::White);
+        window.draw(bgsprite);
+		window.draw(square);
         window.display();
     }
 

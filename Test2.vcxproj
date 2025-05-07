@@ -133,6 +133,9 @@
   <ItemGroup>
     <ClCompile Include="Test2.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="img_texture.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
