@@ -24,4 +24,7 @@
       <Filter>Soubory zdrojů</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="ARIAL.TTF" />
+  </ItemGroup>
 </Project>

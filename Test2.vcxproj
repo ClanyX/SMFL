@@ -136,6 +136,9 @@
   <ItemGroup>
     <Image Include="img_texture.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="ARIAL.TTF" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
