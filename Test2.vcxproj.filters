@@ -18,6 +18,9 @@
     <ClCompile Include="Test2.cpp">
       <Filter>Zdrojové soubory</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Zdrojové soubory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="img_texture.png">
@@ -26,5 +29,10 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="ARIAL.TTF" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Button.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

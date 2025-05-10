@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <SFML/Graphics.hpp>
+#include "Button.h"
 #include <SFML/Window.hpp>
 
 using namespace std;
@@ -18,6 +18,8 @@ int main()
 
     Texture texutre;
     if (!texutre.loadFromFile("img_texture.png")) return -1;
+
+    Button btn({ 100.f,70.f }, { 300.f,250.f }, "Click", font);
 
     RectangleShape square(Vector2f({ 50.f, 50.f }));
     square.setFillColor(Color::Black);
@@ -70,8 +72,12 @@ int main()
                 if (mouseButtonPressed->button == Mouse::Button::Left) {
                     Vector2f mousePos = window.mapPixelToCoords({ mouseButtonPressed->position.x, mouseButtonPressed->position.y });
                     if (button.getGlobalBounds().contains(mousePos)) {
-                        cout << "Btn clicked";
+                        cout << "Btn clicked" << endl;
                     }
+                    else if (btn.isClicked(mousePos)) {
+                        cout << "Btn class clicked" << endl;
+                    }
+
                 }
             }
         }
@@ -99,6 +105,7 @@ int main()
 		window.draw(square);
         window.draw(button);
         window.draw(btnText);
+        btn.draw(window);
         window.display();
     }
 
